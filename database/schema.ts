@@ -7,19 +7,33 @@
 import { BaseModel, column } from '@adonisjs/lucid/orm'
 import { DateTime } from 'luxon'
 
+export class TblUsuarioSchema extends BaseModel {
+  static $columns = ['usuApellidos', 'usuCorreo', 'usuDocumento', 'usuFechaCreacion', 'usuFechaModificacion', 'usuId', 'usuNombres', 'usuTipoDocumentoId', 'usuUsuarioCrea', 'usuUsuarioModifica'] as const
+  $columns = TblUsuarioSchema.$columns
+  @column()
+  declare usuApellidos: string
+  @column()
+  declare usuCorreo: string | null
+  @column()
+  declare usuDocumento: string
+  @column.dateTime()
+  declare usuFechaCreacion: DateTime
+  @column.dateTime()
+  declare usuFechaModificacion: DateTime | null
+  @column({ isPrimary: true })
+  declare usuId: number
+  @column()
+  declare usuNombres: string
+  @column()
+  declare usuTipoDocumentoId: number
+  @column()
+  declare usuUsuarioCrea: string
+  @column()
+  declare usuUsuarioModifica: string | null
+}
+
 export class AuthAccessTokenSchema extends BaseModel {
-  static $columns = [
-    'abilities',
-    'createdAt',
-    'expiresAt',
-    'hash',
-    'id',
-    'lastUsedAt',
-    'name',
-    'tokenableId',
-    'type',
-    'updatedAt',
-  ] as const
+  static $columns = ['abilities', 'createdAt', 'expiresAt', 'hash', 'id', 'lastUsedAt', 'name', 'tokenableId', 'type', 'updatedAt'] as const
   $columns = AuthAccessTokenSchema.$columns
   @column()
   declare abilities: string
