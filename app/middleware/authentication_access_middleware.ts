@@ -49,7 +49,7 @@ export default class AuthenticationAccessMiddleware {
 
     try {
       jwt.verify(String(apiKeyAccesstoken), apiKeySecret)
-    } catch (error) {
+    } catch (error: any) {
       logger.error("API Key Access Token is invalid:", error.message)
       ctx.response.status(401).send(new ResponseStructureDTO(
         RESPONSE_STATUS.ERROR,
