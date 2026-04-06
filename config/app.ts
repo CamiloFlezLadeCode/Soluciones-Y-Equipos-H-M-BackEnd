@@ -76,5 +76,9 @@ export const http = defineConfig({
      * Cross-site policy for cookie sending.
      */
     sameSite: 'lax',
+
+    /**
+     * Timezone for cookie expiration.
+     */
   },
 })

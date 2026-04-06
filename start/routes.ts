@@ -7,7 +7,7 @@
 |
 */
 
-// import { middleware } from '#start/kernel'
+import { middleware } from '#start/kernel'
 import router from '@adonisjs/core/services/router'
 import { controllers } from '#generated/controllers'
 
@@ -40,3 +40,5 @@ router
       }).prefix('user')
   })
   .prefix('/api/v1')
+  .use(middleware.authentication_access())
+

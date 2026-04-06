@@ -7,31 +7,6 @@
 import { BaseModel, column } from '@adonisjs/lucid/orm'
 import { DateTime } from 'luxon'
 
-export class TblUsuarioSchema extends BaseModel {
-  static $columns = ['usuApellidos', 'usuCorreo', 'usuDocumento', 'usuFechaCreacion', 'usuFechaModificacion', 'usuId', 'usuNombres', 'usuTipoDocumentoId', 'usuUsuarioCrea', 'usuUsuarioModifica'] as const
-  $columns = TblUsuarioSchema.$columns
-  @column()
-  declare usuApellidos: string
-  @column()
-  declare usuCorreo: string | null
-  @column()
-  declare usuDocumento: string
-  @column.dateTime()
-  declare usuFechaCreacion: DateTime
-  @column.dateTime()
-  declare usuFechaModificacion: DateTime | null
-  @column({ isPrimary: true })
-  declare usuId: number
-  @column()
-  declare usuNombres: string
-  @column()
-  declare usuTipoDocumentoId: number
-  @column()
-  declare usuUsuarioCrea: string
-  @column()
-  declare usuUsuarioModifica: string | null
-}
-
 export class AuthAccessTokenSchema extends BaseModel {
   static $columns = ['abilities', 'createdAt', 'expiresAt', 'hash', 'id', 'lastUsedAt', 'name', 'tokenableId', 'type', 'updatedAt'] as const
   $columns = AuthAccessTokenSchema.$columns
@@ -55,6 +30,69 @@ export class AuthAccessTokenSchema extends BaseModel {
   declare type: string
   @column.dateTime({ autoCreate: true, autoUpdate: true })
   declare updatedAt: DateTime | null
+}
+
+export class TblCredencialeSchema extends BaseModel {
+  static $columns = ['credenClave', 'credenDocumentoUsuario', 'credenFechaCreacion', 'credenFechaModificacion', 'credenId', 'credenUsuarioCrea', 'credenUsuarioModifica'] as const
+  $columns = TblCredencialeSchema.$columns
+  @column()
+  declare credenClave: string
+  @column()
+  declare credenDocumentoUsuario: string
+  @column.dateTime()
+  declare credenFechaCreacion: DateTime
+  @column.dateTime()
+  declare credenFechaModificacion: DateTime | null
+  @column({ isPrimary: true })
+  declare credenId: number
+  @column()
+  declare credenUsuarioCrea: string
+  @column()
+  declare credenUsuarioModifica: string | null
+}
+
+export class TblTipoDocumentoSchema extends BaseModel {
+  static $columns = ['tipodocuCodigo', 'tipodocuDescripcion', 'tipodocuFechaCreacion', 'tipodocuFechaModificacion', 'tipodocuId', 'tipodocuUsuarioCrea', 'tipodocuUsuarioModifica'] as const
+  $columns = TblTipoDocumentoSchema.$columns
+  @column()
+  declare tipodocuCodigo: string
+  @column()
+  declare tipodocuDescripcion: string
+  @column.dateTime()
+  declare tipodocuFechaCreacion: DateTime
+  @column.dateTime()
+  declare tipodocuFechaModificacion: DateTime | null
+  @column({ isPrimary: true })
+  declare tipodocuId: number
+  @column()
+  declare tipodocuUsuarioCrea: string
+  @column()
+  declare tipodocuUsuarioModifica: string | null
+}
+
+export class TblUsuarioSchema extends BaseModel {
+  static $columns = ['usuApellidos', 'usuCorreo', 'usuDocumento', 'usuFechaCreacion', 'usuFechaModificacion', 'usuId', 'usuNombres', 'usuTipoDocumentoId', 'usuUsuarioCrea', 'usuUsuarioModifica'] as const
+  $columns = TblUsuarioSchema.$columns
+  @column()
+  declare usuApellidos: string
+  @column()
+  declare usuCorreo: string | null
+  @column()
+  declare usuDocumento: string
+  @column.dateTime()
+  declare usuFechaCreacion: DateTime
+  @column.dateTime()
+  declare usuFechaModificacion: DateTime | null
+  @column({ isPrimary: true })
+  declare usuId: number
+  @column()
+  declare usuNombres: string
+  @column()
+  declare usuTipoDocumentoId: number
+  @column()
+  declare usuUsuarioCrea: string
+  @column()
+  declare usuUsuarioModifica: string | null
 }
 
 export class UserSchema extends BaseModel {

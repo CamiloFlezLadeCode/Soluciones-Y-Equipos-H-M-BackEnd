@@ -15,12 +15,12 @@ export default class MakeDto extends BaseCommand {
     const name = this.name
     this.logger.info(`Creando Dto ${name}`)
 
-    const path = `app/dtos/${name}.ts`
+    const path = `app/dtos/${name}DTO.ts`
 
     const cleanName = name.includes('/') ? name.split('/').pop()! : name
     await fs.outputFile(
       path,
-      `export default class ${cleanName}Dto {\npublic id?: number\n}`
+      `export default class ${cleanName}DTO {\npublic id?: number\n}`
     )
     this.logger.info(`Dto ${cleanName} creado`)
   }

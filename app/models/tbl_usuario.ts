@@ -3,7 +3,6 @@ import { column } from '@adonisjs/lucid/orm'
 import { DateTime } from 'luxon'
 
 export default class TblUsuario extends TblUsuarioSchema {
-    public static table = 'TBL_USUARIO'
     /**
      * NOTA:
      * Este modelo ya contiene las columnas reales de la tabla y están precisamente en import { TblUsuarioSchema } from '#database/schema'

@@ -1,10 +1,8 @@
 import TblUsuario from "#models/tbl_usuario"
-import CreateUserDto from "../dtos/User/CreateUser.ts"
+import CreateUserDTO from "../dtos/User/CreateUserDTO.js"
 
 export default class UserRepository {
-    public async create(createUserDto: CreateUserDto) {
-        console.log("LLEGUEEEE AL REPOSI")
+    public async create(createUserDto: CreateUserDTO) {
         await TblUsuario.create(createUserDto)
-        console.log("Llegó hasta el repository")
     }
 }

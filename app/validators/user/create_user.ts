@@ -11,8 +11,8 @@ export const createUserValidator = vine.create({
     // usuFechaModificacion: vine.date({
     //     formats: dateFormats
     // }),
-    usuFechaCreacion: vine.date(),
-    usuFechaModificacion: vine.date(),
+    // usuFechaCreacion: vine.date(),
+    // usuFechaModificacion: vine.date(),
     usuNombres: vine.string(),
     usuTipoDocumentoId: vine.number(),
     usuUsuarioCrea: vine.string(),
