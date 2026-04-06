@@ -6,7 +6,7 @@ export default class extends BaseSchema {
   async up() {
     this.schema.createTable(this.tableName, (table) => {
       table.comment('Tabla encargada de almacenar todas las credenciales de los usuarios')
-      table.increments('creden_id').unique().notNullable().comment('Identificador único de la credencial')
+      table.increments('creden_id').comment('Identificador único de la credencial')
       table.string('creden_documento_usuario', 20).unique().notNullable().comment('Número de documento del usuario')
       table.string('creden_clave').notNullable().comment('Contraseña del usuario')
 

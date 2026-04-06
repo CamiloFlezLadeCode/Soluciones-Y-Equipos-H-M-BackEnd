@@ -51,6 +51,23 @@ export class TblCredencialeSchema extends BaseModel {
   declare credenUsuarioModifica: string | null
 }
 
+export class TblRoleSchema extends BaseModel {
+  static $columns = ['rolDescripcion', 'rolFechaCreacion', 'rolFechaModificacion', 'rolId', 'rolUsuarioCrea', 'rolUsuarioModifica'] as const
+  $columns = TblRoleSchema.$columns
+  @column()
+  declare rolDescripcion: string
+  @column.dateTime()
+  declare rolFechaCreacion: DateTime
+  @column.dateTime()
+  declare rolFechaModificacion: DateTime | null
+  @column({ isPrimary: true })
+  declare rolId: number
+  @column()
+  declare rolUsuarioCrea: string
+  @column()
+  declare rolUsuarioModifica: string | null
+}
+
 export class TblTipoDocumentoSchema extends BaseModel {
   static $columns = ['tipodocuCodigo', 'tipodocuDescripcion', 'tipodocuFechaCreacion', 'tipodocuFechaModificacion', 'tipodocuId', 'tipodocuUsuarioCrea', 'tipodocuUsuarioModifica'] as const
   $columns = TblTipoDocumentoSchema.$columns

@@ -6,7 +6,7 @@ export default class extends BaseSchema {
   async up() {
     this.schema.createTable(this.tableName, (table) => {
       table.comment('Tabla encargada de almacenar todos los usuarios')
-      table.increments('usu_id').unique().notNullable().comment('Identificador único del usuario')
+      table.increments('usu_id').comment('Identificador único del usuario')
       table.string('usu_documento', 20).notNullable().unique().comment('Número de documento del usuario')
       table.integer('usu_tipo_documento_id').notNullable().comment('Identificador del tipo de documento del usuario')
       table.string('usu_nombres', 100).notNullable().comment('Nombres del usuario')

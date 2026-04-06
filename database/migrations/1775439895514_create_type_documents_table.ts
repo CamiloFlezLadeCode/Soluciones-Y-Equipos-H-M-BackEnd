@@ -1,12 +1,12 @@
 import { BaseSchema } from '@adonisjs/lucid/schema'
 
 export default class extends BaseSchema {
-  protected tableName = 'tbl_tipo_documento'
+  protected tableName = 'tbl_tipo_documentos'
 
   async up() {
     this.schema.createTable(this.tableName, (table) => {
       table.comment('Tabla de tipos de documentos')
-      table.increments('tipodocu_id').notNullable().comment('Identificador del tipo de documento')
+      table.increments('tipodocu_id').comment('Identificador del tipo de documento')
       table.string('tipodocu_descripcion', 100).notNullable().unique().comment('Descripción del tipo de documento')
       table.string('tipodocu_codigo', 5).notNullable().unique().comment('Codigo ó abreviatura del tipo de documento')
 

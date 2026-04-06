@@ -39,11 +39,24 @@ export default class AuthenticationAccessMiddleware {
     }
 
     // const encriptKey = jwt.sign({ apiKey: apiKey, apiKeyAccess: apiKeyAccess }, apiKeySecret, { header: { alg: 'HS256', typ: 'JWT' } })
-    const isValid = jwt.verify(String(apiKeyAccesstoken), apiKeySecret)
+    // const isValid = jwt.verify(String(apiKeyAccesstoken), apiKeySecret)
 
-    if (!isValid) {
-      logger.error("API Key Access Token is invalid")
-      ctx.response.status(401).send(new ResponseStructureDTO(RESPONSE_STATUS.ERROR, RESPONSE_CODE.UNAUTHORIZED, RESPONSE_MESSAGE.UNAUTHORIZED, null))
+    // if (!jwt.verify(String(apiKeyAccesstoken), apiKeySecret)) {
+    //   logger.error("API Key Access Token is invalid")
+    //   ctx.response.status(401).send(new ResponseStructureDTO(RESPONSE_STATUS.ERROR, RESPONSE_CODE.UNAUTHORIZED, RESPONSE_MESSAGE.UNAUTHORIZED, null))
+    //   return
+    // }
+
+    try {
+      jwt.verify(String(apiKeyAccesstoken), apiKeySecret)
+    } catch (error) {
+      logger.error("API Key Access Token is invalid:", error.message)
+      ctx.response.status(401).send(new ResponseStructureDTO(
+        RESPONSE_STATUS.ERROR,
+        RESPONSE_CODE.UNAUTHORIZED,
+        RESPONSE_MESSAGE.UNAUTHORIZED,
+        null
+      ))
       return
     }
 
