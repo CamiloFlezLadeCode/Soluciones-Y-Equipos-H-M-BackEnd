@@ -1,5 +1,5 @@
 import vine from '@vinejs/vine'
-// import { dateFormats } from '../../constants/dateFormats.js'
+// import { dateFormats } from '#constants/dateFormats'
 
 export const createUserValidator = vine.create({
     usuApellidos: vine.string(),

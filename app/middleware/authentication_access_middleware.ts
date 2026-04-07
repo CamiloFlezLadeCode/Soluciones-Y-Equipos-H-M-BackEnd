@@ -1,18 +1,22 @@
-import type { HttpContext } from '@adonisjs/core/http'
-import type { NextFn } from '@adonisjs/core/types/http'
-import jwt from 'jsonwebtoken'
+import { RESPONSE_CODE, RESPONSE_MESSAGE, RESPONSE_STATUS } from '#constants/http.constants'
+import ResponseStructureDTO from '#dtos/responseStructureDTO'
+import { JsonwebtokenService } from '#services/jsonwebtoken_service'
 import env from '#start/env'
-import { RESPONSE_CODE, RESPONSE_MESSAGE, RESPONSE_STATUS } from '../constants/http.constants.ts'
-import ResponseStructureDTO from '../dtos/responseStructureDTO.js'
+import { inject } from '@adonisjs/core'
+import type { HttpContext } from '@adonisjs/core/http'
 import logger from '@adonisjs/core/services/logger'
+import type { NextFn } from '@adonisjs/core/types/http'
 
+@inject()
 export default class AuthenticationAccessMiddleware {
+  constructor(
+    private jsonwebtokenService: JsonwebtokenService
+  ) { }
   async handle(ctx: HttpContext, next: NextFn) {
     /**
      * Middleware logic goes here (before the next call)
      */
     const apiKey = env.get('API_KEY')
-    const apiKeySecret = env.get('API_KEY_SECRET')
     const apiKeyAccess = env.get('API_KEY_ACCESS')
 
     const headers = ctx.request.headers()
@@ -48,7 +52,7 @@ export default class AuthenticationAccessMiddleware {
     // }
 
     try {
-      jwt.verify(String(apiKeyAccesstoken), apiKeySecret)
+      await this.jsonwebtokenService.verifyToken(String(apiKeyAccesstoken))
     } catch (error: any) {
       logger.error("API Key Access Token is invalid:", error.message)
       ctx.response.status(401).send(new ResponseStructureDTO(

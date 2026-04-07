@@ -1,5 +1,5 @@
 import TblUsuario from "#models/tbl_usuario"
-import CreateUserDTO from "../dtos/User/CreateUserDTO.js"
+import CreateUserDTO from "#dtos/User/CreateUserDTO"
 
 export default class UserRepository {
     public async create(createUserDto: CreateUserDTO) {

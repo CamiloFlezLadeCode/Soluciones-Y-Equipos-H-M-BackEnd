@@ -1,6 +1,6 @@
-import UserRepository from "../repositories/User.js"
+import UserRepository from "#repositories/User"
 import { inject } from '@adonisjs/core'
-import CreateUserDTO from "../dtos/User/CreateUserDTO.js"
+import CreateUserDTO from "#dtos/User/CreateUserDTO"
 
 @inject()
 export class UserService {

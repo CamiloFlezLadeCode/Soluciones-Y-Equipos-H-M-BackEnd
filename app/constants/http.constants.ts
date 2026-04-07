@@ -20,7 +20,13 @@ export const RESPONSE_MESSAGE = {
     CONFLICT: "Conflict",
 }
 
-export enum RESPONSE_STATUS {
-    SUCCESS = "Success",
-    ERROR = "Error",
+export const RESPONSE_STATUS = {
+    SUCCESS: "Success",
+    ERROR: "Error",
+}
+
+export const RESPONSE_MESSAGE_LOGIN = {
+    UNREGISTERED_USER: "Unregistered user",
+    INCORRECT_CREDENTIALS: "Incorrect credentials",
+    SUCCESSFUL_LOGIN: "Successful login",
 }

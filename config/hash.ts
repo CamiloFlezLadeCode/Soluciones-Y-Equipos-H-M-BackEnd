@@ -10,7 +10,7 @@ const hashConfig = defineConfig({
   /**
    * Default hasher used by the application.
    */
-  default: 'scrypt',
+  default: 'argon2',
 
   list: {
     /**
@@ -61,6 +61,18 @@ const hashConfig = defineConfig({
        */
       maxMemory: 33554432,
     }),
+
+    /**
+     * Argon2 is a memory-hard algorithm that is recommended for password hashing.
+     */
+    argon2: drivers.argon2({
+      variant: 'id',
+      iterations: 3,
+      memory: 65536,
+      parallelism: 4,
+      saltSize: 16,
+      hashLength: 32,
+    })
   },
 })
 
@@ -71,5 +83,5 @@ export default hashConfig
  * in your application.
  */
 declare module '@adonisjs/core/types' {
-  export interface HashersList extends InferHashers<typeof hashConfig> {}
+  export interface HashersList extends InferHashers<typeof hashConfig> { }
 }

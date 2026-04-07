@@ -35,7 +35,10 @@
     "#database/*": "./database/*.js",
     "#tests/*": "./tests/*.js",
     "#start/*": "./start/*.js",
-    "#config/*": "./config/*.js"
+    "#config/*": "./config/*.js",
+    "#repositories/*": "./app/repositories/*.js",
+    "#dtos/*": "./app/dtos/*.js",
+    "#constants/*": "./app/constants/*.js"
   },
   "devDependencies": {
     "@adonisjs/assembler": "^8.3.0",
@@ -67,6 +70,7 @@
     "@japa/api-client": "^3.2.1",
     "@tuyau/core": "^1.2.2",
     "@vinejs/vine": "^4.3.0",
+    "argon2": "^0.44.0",
     "better-sqlite3": "^12.8.0",
     "fs-extra": "^11.3.4",
     "jsonwebtoken": "^9.0.3",

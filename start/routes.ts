@@ -15,6 +15,8 @@ router.get('/', () => {
   return { hello: 'world' }
 })
 
+router.post('/login', [controllers.Auth, 'login']).prefix('/api/v1/auth')
+
 router
   .group(() => {
     // router
@@ -37,6 +39,7 @@ router
     router
       .group(() => {
         router.post('', [controllers.Users, 'create'])
+        // router.get('', [controllers.Users, 'index'])
       }).prefix('user')
   })
   .prefix('/api/v1')

@@ -4,6 +4,7 @@ type ParamValue = string | number | bigint | boolean
 
 export type ScannedRoutes = {
   ALL: {
+    'auth.login': { paramsTuple?: []; params?: {} }
     'users.create': { paramsTuple?: []; params?: {} }
   }
   GET: {
@@ -11,6 +12,7 @@ export type ScannedRoutes = {
   HEAD: {
   }
   POST: {
+    'auth.login': { paramsTuple?: []; params?: {} }
     'users.create': { paramsTuple?: []; params?: {} }
   }
 }
