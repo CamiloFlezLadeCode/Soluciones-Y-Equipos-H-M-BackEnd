@@ -29,4 +29,5 @@ export const RESPONSE_MESSAGE_LOGIN = {
     UNREGISTERED_USER: "Unregistered user",
     INCORRECT_CREDENTIALS: "Incorrect credentials",
     SUCCESSFUL_LOGIN: "Successful login",
+    INACTIVE_USER: "Inactive user"
 }
